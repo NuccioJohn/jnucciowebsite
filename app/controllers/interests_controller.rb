@@ -5,9 +5,11 @@ class InterestsController < ApplicationController
   # GET /interests.json
   def index
     @interests = Interest.order("created_at desc").page(params[:page]).per_page(20)
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @interests }
+      format.js
     end
   end
 
