@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="span6 offset3">
+        <div class="well">
+			<p>
+			  <b>Title:</b>
+			  <%= @interest.title %>
+			</p>
+
+			<p>
+			  <b>Description:</b>
+			  <%= @interest.description %>
+			</p>
+
+
+			<%= link_to 'Edit', edit_interest_path(@interest) %> |
+			<%= link_to 'Back', interests_path %>
+        </div>
+    </div>
+</div>
