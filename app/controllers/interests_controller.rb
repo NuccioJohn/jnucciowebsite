@@ -1,4 +1,6 @@
 class InterestsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index]
+
   # GET /interests
   # GET /interests.json
   def index
@@ -24,7 +26,7 @@ class InterestsController < ApplicationController
   # GET /interests/new
   # GET /interests/new.json
   def new
-    @interest = Interest.new
+     @interest = current_user.interests.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +36,13 @@ class InterestsController < ApplicationController
 
   # GET /interests/1/edit
   def edit
-    @interest = Interest.find(params[:id])
+    @interest = current_user.interests.find(params[:id])
   end
 
   # POST /interests
   # POST /interests.json
   def create
-    @interest = Interest.new(params[:interest])
+    @interest = current_user.interests.new(params[:interest])
 
     respond_to do |format|
       if @interest.save
@@ -56,7 +58,7 @@ class InterestsController < ApplicationController
   # PUT /interests/1
   # PUT /interests/1.json
   def update
-    @interest = Interest.find(params[:id])
+    @interest = current_user.interests.find(params[:id])
 
     respond_to do |format|
       if @interest.update_attributes(params[:interest])
@@ -72,7 +74,7 @@ class InterestsController < ApplicationController
   # DELETE /interests/1
   # DELETE /interests/1.json
   def destroy
-    @interest = Interest.find(params[:id])
+    @interest = current_user.interests.find(params[:id])
     @interest.destroy
 
     respond_to do |format|
