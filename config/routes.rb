@@ -7,7 +7,7 @@ Jnucciowebsite::Application.routes.draw do
 
   get "pages/home"
 
-  root :to => 'pages#home'
+  root :to => 'interests#index'
   get 'about' => 'pages#about'
   
 end

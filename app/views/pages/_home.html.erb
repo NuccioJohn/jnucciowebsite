@@ -1,3 +1,4 @@
+<% if !user_signed_in? %>
 	 <div class="hero-unit">
 		<h1><STRONG>John Nuccio</STRONG> Interest</h1>
 		<p>
@@ -10,4 +11,5 @@
 			<%= link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-inverse btn-large" %> 
 		</p>
 	</div>
+<% end %>
 
