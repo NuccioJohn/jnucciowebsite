@@ -4,7 +4,7 @@ class InterestsController < ApplicationController
   # GET /interests
   # GET /interests.json
   def index
-    @interests = Interest.all
+    @interests = Interest.order("created_at desc")
 
     respond_to do |format|
       format.html # index.html.erb

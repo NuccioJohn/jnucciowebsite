@@ -1,10 +1,19 @@
-    <tr>
-    	<td><%= image_tag interest.image(:medium) %></td>
-    	<td><%= interest.title %></td>
-        <td><%= interest.description %></td>
-        <td><%= link_to 'Show', interest %></td>
-        <% if current_user == interest.user %>
-        <td><%= link_to 'Edit', edit_interest_path(interest) %></td>
-        <td><%= link_to 'Destroy', interest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-    </tr>
+<div class="box">
+        <%= link_to (image_tag interest.image(:medium)), interest %>
+    <p class="description">
+    	<strong>
+	       <%= interest.title %>
+	    </strong>
+	</p>
+	<p>
+    	<strong>
+	       Posted by <%= interest.user.name %>
+	    </strong>
+	</p>
+	    <%= link_to 'Show', interest %>
+    <% if current_user == interest.user %>
+        <%= link_to 'Edit', edit_interest_path(interest) %>
+	    <%= link_to 'Destroy', interest, method: :delete, data: { confirm: 'Are you sure?' } %>
+	</p>
+    <% end %>
+</div>
